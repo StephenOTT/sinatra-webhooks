@@ -4,9 +4,13 @@ Sinatra-Webhooks is a simple Sinatra web application that handles GitHub webhook
 Push events result in a git pull request from the repository and then a Middleman build. The results from both these executions are synchronously returned in the response.
 
 To use the application, the `GITHUB_WEBHOOK_SECRET` environment variable should be defined. A great way to generate a secure secret is to invoke the following shell command:
-`ruby -rsecurerandom -e 'puts SecureRandom.hex(30)'`
+```shell
+ruby -rsecurerandom -e 'puts SecureRandom.hex(30)'
+```
 
 Use that token as a secret in the webhook configuration and set the environment variable, where the application is run, with the following command:
-`export GITHUB_WEBHOOK_SECRET=your_secret`
+```shell
+export GITHUB_WEBHOOK_SECRET=your_secret
+```
 
 When testing in a [Vagrant](https://www.vagrantup.com/) image, [ngrok](https://ngrok.com/) is a fantastic tool for tunneling to localhost.
